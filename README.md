@@ -127,7 +127,7 @@ yarn install
 Then start the frontend:
 
 ```bash
-yarn dev
+yarn serve
 ```
 
 The UI will be available at:
