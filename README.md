@@ -135,3 +135,12 @@ The UI will be available at:
 ```
 http://localhost:8081
 ```
+
+## Technology Stack
+
+This project is built with the following technologies:
+
+- **Backend**: Spring Boot (Java), structured using a layered architecture (Controller, Service, Repository)
+- **Frontend**: Vue 3, developed using Vite for fast development and hot module replacement
+- **Database**: PostgreSQL, initialized using Docker Compose for consistent local environments
+- **Architecture**: 3-tier architecture separating concerns across UI, API, and persistence layers
