@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style type="text/css">
+        body { font-family: Arial, sans-serif; font-size: 12px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ccc; padding: 6px; text-align: left; }
+    </style>
+</head>
+<body>
+<h2>Person Report</h2>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th><th>Name</th><th>Surname</th><th>Email</th>
+        <th>Phone</th><th>Birthdate</th><th>Address</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="p : ${persons}">
+        <td th:text="${p.id}"></td>
+        <td th:text="${p.name}"></td>
+        <td th:text="${p.surname}"></td>
+        <td th:text="${p.email}"></td>
+        <td th:text="${p.phone}"></td>
+        <td th:text="${p.birthdate}"></td>
+        <td th:text="${p.address}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

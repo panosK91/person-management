@@ -1,0 +1,165 @@
+.drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 420px;
+    height: 100%;
+    background: linear-gradient(to bottom right, #f0f4f8, #ffffff);
+    box-shadow: -3px 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    z-index: 999;
+  }
+
+  .drawer-header {
+    padding: 1rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    background-color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+
+  .drawer-content {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 1rem;
+    padding-right: 1.25rem;
+  }
+
+  .drawer-form label {
+    font-weight: 500;
+    margin-top: 12px;
+    margin-bottom: 4px;
+    display: block;
+  }
+
+  .drawer-form input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-bottom: 8px;
+    outline: none;
+  }
+
+  .error {
+    color: red;
+    font-size: 0.85rem;
+    margin-top: -6px;
+    margin-bottom: 8px;
+  }
+
+  .form-buttons {
+    padding: 1rem;
+    border-top: 1px solid #eee;
+    background-color: #fff;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    position: sticky;
+    bottom: 0;
+    z-index: 1;
+  }
+
+  button[type="submit"] {
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+  button[type="submit"]:hover {
+    background-color: #1e40af;
+  }
+
+  .cancel-btn {
+    background-color: #e5e7eb;
+    color: #111827;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  .cancel-btn:hover {
+    background-color: #d1d5db;
+  }
+
+  /* Language Dropdown */
+  .language-dropdown .dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 10px;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  .language-dropdown .dropdown-item input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+  }
+
+  .language-dropdown .dropdown-item span {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .language-dropdown .dropdown-item.selected {
+    background-color: #eef2ff;
+  }
+
+  /* Common Dropdown Styling */
+  .dropdown {
+    position: relative;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #fff;
+    padding: 6px;
+    cursor: pointer;
+    margin-bottom: 12px;
+  }
+
+  .dropdown-display {
+    padding: 6px;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+  }
+
+  .dropdown-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    max-height: 200px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: white;
+    border: 1px solid #ccc;
+    z-index: 10;
+    border-radius: 6px;
+    margin-top: 4px;
+  }
+
+  .dropdown-search {
+    width: 100%;
+    padding: 6px;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    outline: none;
+  }
+
+  .country-dropdown .dropdown-item:hover {
+    background-color: #e0e7ff;
+  }
