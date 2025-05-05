@@ -12,6 +12,33 @@ This application follows a clean, normalized domain model with three key entitie
 
 This structure ensures **data consistency**, avoids redundancy, and supports flexible evolution as the system grows. DTOs (Data Transfer Objects) are used to expose clean API contracts and decouple persistence models from external consumers.
 
+##### Why These Tables?
+
+- **Country**
+  - Represents the country associated with a person or address.
+  - Modeled as a separate entity to support referential integrity, standardized naming, and potential international features like country codes, flags, or region-specific logic.
+  - This structure makes filtering, validation, and consistency across records much easier.
+
+- **person_language** (Join Table)
+  - Supports the many-to-many relationship between persons and languages.
+  - This normalized structure enables each person to have multiple languages and each language to be linked to many people.
+  - Using a join table ensures referential integrity and allows efficient querying and filtering (e.g., "find all people who speak German").
+
+- **Country**
+  - Represents the country associated with a person or address.
+  - Modeled as a separate entity to support referential integrity, standardized naming, and potential international features like country codes, flags, or region-specific logic.
+  - This structure makes filtering, validation, and consistency across records much easier.
+
+
+- **Person**
+  - Core entity representing individuals with fields like name, surname, birthdate, email, and phone.
+  - Acts as an aggregate root and owns associations with address and language.
+  - Keeping it as a separate table enables CRUD operations on individuals independently and cleanly.
+
+- **Address**
+  - Stored in a standalone table to avoid duplication, especially if address reuse or multiple addresses per person are introduced in the future.
+  - Normalized to make it easier to integrate geolocation services or validate postal information later.
+
 ### Application Architecture
 
 The backend uses a **layered architecture** with:
@@ -32,12 +59,10 @@ The backend uses a **layered architecture** with:
 #### Observability
 - **Metrics Collection**: Integrated with **Micrometer** for application-level metrics (request latency, active DB connections, memory usage).
 - **Monitoring Stack**: Metrics can be scraped by **Prometheus** and visualized via **Grafana** dashboards. Alerting thresholds (e.g., error rates, latency) can be set for proactive response.
-- **Structured Logging**: Centralized via **ELK Stack** or **Grafana Loki**, enabling full-text search and traceability across services.
 
 #### Security & Resilience
 - **Authentication/Authorization**: Easily extensible with **Spring Security** and JWT-based authentication.
-- **Fault Tolerance**: **Resilience4j** or **Spring Cloud Circuit Breaker** can be used for retries, fallback strategies, and bulkhead isolation.
-- **Input Validation**: DTOs are annotated for validation using JSR-303 (`@Valid`) constraints, protecting against malformed or malicious input.
+- **Input Validation**: DTOs are annotated for validation using constraints, protecting against malformed or malicious input.
 
 #### CI/CD and Testing
 - **Automated Testing**: Unit tests (via JUnit 5) and integration tests (via **Testcontainers**) ensure correctness across environments.
